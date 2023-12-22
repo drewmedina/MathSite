@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="CrossProductStyle.css" />
+  </head>
+  <body>
+    <div class="h1Box"><h1>Cross Product Calculator</h1></div>
+    <br />
+    <br />
+    <div id="vectorSelection">
+      <p class="vectorSelectName">Select vector dimension</p>
+      <button onclick="show3DForm()">3D Vector</button>
+      <button onclick="show2DForm()">2D Vector</button>
+    </div>
+    <div class="formBox3X3">
+      <form id="formBox3X3">
+        Vector 1 i:
+        <input type="text" name="ui" />
+
+        Vector 1 j:
+        <input type="text" name="uj" />
+
+        Vector 1 k:
+        <input type="text" name="uk" />
+        <br />
+        <br />
+        <br />
+        Vector 2 i:
+        <input type="text" name="vi" />
+
+        Vector 2 j:
+        <input type="text" name="vj" />
+
+        Vector 2 k:
+        <input type="text" name="vk" />
+        <input type="submit" value="Compute" />
+      </form>
+    </div>
+    <div class="formBox2X2">
+      <form id="formBox2X2">
+        Vector 1 i:
+        <input type="text" name="ui" />
+        Vector 1 j:
+        <input type="text" name="uj" />
+        <br />
+        <br />
+        <br />
+        Vector 2 i:
+        <input type="text" name="vi" />
+        Vector 2 j:
+        <input type="text" name="vj" />
+        <br />
+        <br />
+        <br />
+        <input
+          type="button"
+          onclick="computeResult()"
+          value="Calculate"
+          id="ComputeButton"
+        />
+        <br />
+        <br />
+        <input type="textbox" id="Result" value="Result" />
+      </form>
+    </div>
+
+    <script>
+      function show3DForm() {
+        document.querySelector(".formBox3X3").style.display = "block";
+        document.querySelector(".formBox2X2").style.display = "none";
+      }
+
+      function show2DForm() {
+        document.querySelector(".formBox3X3").style.display = "none";
+        document.querySelector(".formBox2X2").style.display = "block";
+      }
+      function twoDCross(ui, uj, vi, vj) {
+        result = ui * vj - uj * vi;
+        return result;
+      }
+
+      function computeResult() {
+        var ui = document.forms["formBox2X2"].elements["ui"].value;
+        var uj = document.forms["formBox2X2"].elements["uj"].value;
+        var vi = document.forms["formBox2X2"].elements["vi"].value;
+        var vj = document.forms["formBox2X2"].elements["vj"].value;
+        document.getElementById("Result").value = parseInt(
+          twoDCross(ui, uj, vi, vj)
+        );
+      }
+    </script>
+  </body>
+</html>

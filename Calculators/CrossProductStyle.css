@@ -1,0 +1,102 @@
+h1{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+body{
+    background-image: url("../backgroundImg.jpg");
+}
+.h1Box{
+    background-color: #242424;
+    padding: 10px;
+}
+form{
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.formBox3X3{
+    background-color: #242424;
+    padding: 10px;
+    display: none;
+}
+.formBox2X2{
+    background-color: #242424;
+    padding: 10px;
+    display: none;
+}
+button {
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 250px;
+    max-height: 50px;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
+  
+  button:hover,
+  button:focus {
+    opacity: .75;
+  }
+  .vectorSelectName {
+    text-align: center;
+    color: white;
+    font-size: x-large;
+  }
+  #vectorSelection{
+    text-align: center;
+    padding: 10px;
+  }
+  #ComputeButton {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 250px;
+    max-height: 50px;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    padding: 10px;
+  }
