@@ -17,7 +17,17 @@
       <form id="vector2">
         Input 2nd Vector {value,value} form <input type="text" name="vector2" />
       </form>
-      <input type="button" onclick="showDotResult()" value="Compute" />
+      <br />
+      <br />
+      <input
+        type="button"
+        onclick="showDotResult()"
+        value="Compute"
+        id="Compute"
+      />
+      <br />
+      <br />
+
       <input type="textbox" value="Result" id="dotResultTextBox" />
     </div>
     <div id="Error Message">
@@ -26,13 +36,46 @@
       </p>
     </div>
     <script>
+      function showDotResult() {
+        let vector1 = document.forms["vector1"].elements["vector1"].value;
+        let vector2 = document.forms["vector2"].elements["vector2"].value;
+        document.getElementById("dotResultTextBox").value = parseInt(
+          calculateDotProduct(vector1, vector2)
+        );
+      }
       function calculateDotProduct(vector1, vector2) {
+        var vector1Array = [];
+        var vector2Array = [];
+
         if (vector1.length != vector2.length) {
           document.querySelector("Error Message").style.display = "block";
         }
-        else{
-            for
+        let sum = 0;
+
+        for (let i = 1; i < vector1.length - 1; i++) {
+          let u = "";
+          let index = i;
+          while (vector1[index] != "," && vector1[index] != "}") {
+            u += vector1[index];
+            index++;
+          }
+          vector1Array.push(u);
+          i = index;
         }
+        for (let i = 1; i < vector2.length - 1; i++) {
+          let v = "";
+          let index = i;
+          while (vector2[index] != "," && vector2[index] != "}") {
+            v += vector2[index];
+            index++;
+          }
+          vector2Array.push(v);
+          i = index;
+        }
+        for (let i = 0; i < vector1Array.length; i++) {
+          sum += vector1Array[i].valueOf() * vector2Array[i].valueOf();
+        }
+        return sum;
       }
     </script>
   </body>
