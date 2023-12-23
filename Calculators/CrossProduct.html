@@ -36,34 +36,42 @@
 
         Vector 2 k:
         <input type="text" name="vk" />
-        <input type="submit" value="Compute" />
+        <input
+          type="button"
+          onclick="computeThreeDResult()"
+          value="Calculate"
+          id="ComputeButton"
+        />
+        <br />
+        <br />
+        <input type="textbox" id="Result3D" value="Result" />
       </form>
     </div>
     <div class="formBox2X2">
       <form id="formBox2X2">
         Vector 1 i:
         <input type="text" name="ui" />
-        Vector 1 j:
+        , j:
         <input type="text" name="uj" />
         <br />
         <br />
         <br />
         Vector 2 i:
         <input type="text" name="vi" />
-        Vector 2 j:
+        , j:
         <input type="text" name="vj" />
         <br />
         <br />
         <br />
         <input
           type="button"
-          onclick="computeResult()"
+          onclick="computeTwoDResult()"
           value="Calculate"
           id="ComputeButton"
         />
         <br />
         <br />
-        <input type="textbox" id="Result" value="Result" />
+        <input type="textbox" id="Result2D" value="Result" />
       </form>
     </div>
 
@@ -71,24 +79,50 @@
       function show3DForm() {
         document.querySelector(".formBox3X3").style.display = "block";
         document.querySelector(".formBox2X2").style.display = "none";
+        document.querySelector("Result2D").value = "none";
       }
 
       function show2DForm() {
         document.querySelector(".formBox3X3").style.display = "none";
         document.querySelector(".formBox2X2").style.display = "block";
+        document.querySelector("Result3D").value = "none";
       }
       function twoDCross(ui, uj, vi, vj) {
         result = ui * vj - uj * vi;
         return result;
       }
+      function threeDCross(ui, uj, uk, vi, vj, vk) {
+        let i = vk * uj - vj * uk;
+        let j = -(vk * ui - uk * vi);
+        let k = vj * ui - vi * uj;
+        let result = "< " + i + ", " + j + ", " + k + ">";
+        return result;
+      }
 
-      function computeResult() {
-        var ui = document.forms["formBox2X2"].elements["ui"].value;
-        var uj = document.forms["formBox2X2"].elements["uj"].value;
-        var vi = document.forms["formBox2X2"].elements["vi"].value;
-        var vj = document.forms["formBox2X2"].elements["vj"].value;
-        document.getElementById("Result").value = parseInt(
+      function computeTwoDResult() {
+        let ui = document.forms["formBox2X2"].elements["ui"].value;
+        let uj = document.forms["formBox2X2"].elements["uj"].value;
+        let vi = document.forms["formBox2X2"].elements["vi"].value;
+        let vj = document.forms["formBox2X2"].elements["vj"].value;
+        document.getElementById("Result2D").value = parseInt(
           twoDCross(ui, uj, vi, vj)
+        );
+      }
+      function computeThreeDResult() {
+        let ui = document.forms["formBox3X3"].elements["ui"].value;
+        let uj = document.forms["formBox3X3"].elements["uj"].value;
+        let uk = document.forms["formBox3X3"].elements["uk"].value;
+        let vi = document.forms["formBox3X3"].elements["vi"].value;
+        let vj = document.forms["formBox3X3"].elements["vj"].value;
+        let vk = document.forms["formBox3X3"].elements["vk"].value;
+
+        document.getElementById("Result3D").value = threeDCross(
+          ui,
+          uj,
+          uk,
+          vi,
+          vj,
+          vk
         );
       }
     </script>
