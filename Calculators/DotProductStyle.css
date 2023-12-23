@@ -27,6 +27,7 @@ h1{
 }
 #Message{
     color: white;
+    text-align: center;
 }
 #Compute{
     text-align: center;

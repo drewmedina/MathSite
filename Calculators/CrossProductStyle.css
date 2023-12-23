@@ -114,4 +114,11 @@ button {
     background-color: #242424;
     width: fit-content;
     height: fit-content;
+    text-align: center;
+    margin: 0 auto;
+
   }
+  #BackLink{
+    text-align: center;
+  }
+
