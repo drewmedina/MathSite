@@ -5,5 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <link rel="stylesheet" href="DotProductStyle.css" />
+    <div id="h1Box"><h1>Dot Product Calculator</h1></div>
+    <div id="vectorBox">
+      <form id="vector1">
+        Input 1st Vector {value,value} form <input type="text" name="vector1" />
+      </form>
+      <br />
+      <br />
+      <form id="vector2">
+        Input 2nd Vector {value,value} form <input type="text" name="vector2" />
+      </form>
+      <input type="button" onclick="showDotResult()" value="Compute" />
+      <input type="textbox" value="Result" id="dotResultTextBox" />
+    </div>
+    <div id="Error Message">
+      <p id="Message">
+        The Vectors that you inputted were not equal length or not in equal form
+      </p>
+    </div>
+    <script>
+      function calculateDotProduct(vector1, vector2) {
+        if (vector1.length != vector2.length) {
+          document.querySelector("Error Message").style.display = "block";
+        }
+        else{
+            for
+        }
+      }
+    </script>
+  </body>
 </html>

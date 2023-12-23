@@ -1,0 +1,22 @@
+body{
+    background-image: url("../backgroundImg.jpg");
+
+}
+#h1Box{
+    background-color: #242424;
+    padding: 10px;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+    color: white;
+
+}
+#vectorBox{
+    background-color: #242424;
+    padding: 10px;
+}
+#vector1, #vector2{
+    color: white;
+    text-align: center;
+}
