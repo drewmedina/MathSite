@@ -104,3 +104,15 @@ button {
     border-radius: 10%;
     border-color: white;
   }
+  #BackLink{
+    text-align: center;
+    align-self: center;
+    color: white;
+    font-size: larger;
+  }
+  #backBox{
+    background-color: #242424;
+    width: fit-content;
+    height: fit-content;
+    
+  }
