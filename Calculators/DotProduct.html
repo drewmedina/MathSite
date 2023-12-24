@@ -10,12 +10,14 @@
     <div id="h1Box"><h1>Dot Product Calculator</h1></div>
     <div id="vectorBox">
       <form id="vector1">
-        Input 1st Vector {value,value} form <input type="text" name="vector1" />
+        Input 1st Vector {value,value} form
+        <input type="text" name="vector1" value="{1,2,3}" />
       </form>
       <br />
       <br />
       <form id="vector2">
-        Input 2nd Vector {value,value} form <input type="text" name="vector2" />
+        Input 2nd Vector {value,value} form
+        <input type="text" name="vector2" value="{1,2,3}" />
       </form>
       <br />
       <br />
@@ -28,13 +30,9 @@
       <br />
       <br />
 
-      <input type="textbox" value="Result" id="dotResultTextBox" />
+      <input type="textbox" value="14" id="dotResultTextBox" />
     </div>
-    <div id="Error Message">
-      <p id="Message">
-        The Vectors that you inputted were not equal length or not in equal form
-      </p>
-    </div>
+    <div id="ErrorMessage"></div>
     <script>
       function showDotResult() {
         let vector1 = document.forms["vector1"].elements["vector1"].value;
@@ -48,7 +46,8 @@
         var vector2Array = [];
 
         if (vector1.length != vector2.length) {
-          document.querySelector("Error Message").style.display = "block";
+          document.getElementById("ErrorMessage").innerHTML =
+            "Vectors are not equal length or in correct form. Please Re Enter";
         }
         let sum = 0;
 

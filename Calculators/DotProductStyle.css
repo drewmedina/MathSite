@@ -22,13 +22,13 @@ h1{
     color: white;
     text-align: center;
 }
-#ErroMessageBlock{
-    display: none;
-}
-#Message{
-    color: white;
+#ErrorMessage{
+    color:white;
     text-align: center;
+    font-size: x-large;
+    background-color: #242424;
 }
+
 #Compute{
     text-align: center;
     margin: 0 auto;
