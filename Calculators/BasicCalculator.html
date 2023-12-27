@@ -8,7 +8,7 @@
   <body>
     <link rel="stylesheet" href="BasicCaluclatorStyle.css" />
     <div id="numbers">
-      <div id="result">0</div>
+      <div id="result"><div id="result-number">0</div></div>
       <br />
       <button class="number" data-value="CLEAR">AC</button>
       <button class="number" data-value="PLUS_MINUS">+/-</button>
@@ -50,22 +50,22 @@
             console.log(num1, num2);
             if (operator == "+") {
               result = parseFloat(add(num1, num2));
-              document.getElementById("result").innerHTML = result;
+              document.getElementById("result-number").innerHTML = result;
               num1 = "";
               num2 = "";
             } else if (operator == "-") {
               result = parseFloat(subtract(num1, num2));
-              document.getElementById("result").innerHTML = result;
+              document.getElementById("result-number").innerHTML = result;
               num1 = "";
               num2 = "";
             } else if (operator == "X") {
               result = parseFloat(multiply(num1, num2));
-              document.getElementById("result").innerHTML = result;
+              document.getElementById("result-number").innerHTML = result;
               num1 = "";
               num2 = "";
             } else {
               result = parseFloat(divide(num1, num2));
-              document.getElementById("result").innerHTML = result;
+              document.getElementById("result-number").innerHTML = result;
               num1 = "";
               num2 = "";
             }
@@ -74,21 +74,21 @@
           } else if (value == "CLEAR") {
             operator, num1, num2, result, (currNum = "");
             firstOperation = false;
-            document.getElementById("result").innerHTML = 0;
+            document.getElementById("result-number").innerHTML = 0;
           } else if (operators.indexOf(value) < 0) {
             currNum += value;
-            document.getElementById("result").innerHTML = currNum;
+            document.getElementById("result-number").innerHTML = currNum;
           } else {
             if (firstOperation) {
               currNum = "";
               operator = value;
-              document.getElementById("result").innerHTML = operator;
+              document.getElementById("result-number").innerHTML = operator;
               console.log("num1 =", num1, "operator =", operator);
             } else {
               num1 = currNum;
               currNum = "";
               operator = value;
-              document.getElementById("result").innerHTML = operator;
+              document.getElementById("result-number").innerHTML = operator;
             }
           }
         });
@@ -110,7 +110,7 @@
       }
       function multiply(number1, number2) {
         let product = parseFloat(number1) * parseFloat(number2);
-        if (isNan(proudct)) {
+        if (isNaN(product)) {
           return "Erorr";
         }
         return product;

@@ -26,12 +26,22 @@
 #result{
     height: 120px;
     width: 100%;
+    position: relative;
     font-size: 60px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: lightblue;
     margin-right: 0;
+    margin-bottom: 0;
+
     text-align: right;
     border-radius: 5%;
+}
+#result-number {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 60px;
+    padding: 10px;
 }
 #equals{
     width: 160px;
