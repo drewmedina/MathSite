@@ -5,5 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <link rel="stylesheet" href="BasicCaluclatorStyle.css" />
+    <div id="numbers">
+      <div id="result">0</div>
+      <br />
+      <button class="number" data-value="CLEAR">AC</button>
+      <button class="number" data-value="PLUS_MINUS">+/-</button>
+      <button class="number" data-value="%">%</button>
+      <button class="number" data-value="/">/</button>
+      <br />
+      <button class="number" data-value="7">7</button>
+      <button class="number" data-value="8">8</button>
+      <button class="number" data-value="9">9</button>
+      <button class="number" data-value="X">X</button>
+      <br />
+      <button class="number" data-value="4">4</button>
+      <button class="number" data-value="5">5</button>
+      <button class="number" data-value="6">6</button>
+      <button class="number" data-value="-">-</button>
+      <br />
+      <button class="number" data-value="1">1</button>
+      <button class="number" data-value="2">2</button>
+      <button class="number" data-value="3">3</button>
+      <button class="number" data-value="+">+</button>
+      <br />
+      <button class="number" data-value="0">0</button>
+      <button class="number" data-value=".">.</button>
+      <button class="number" id="equals" data-value="=">=</button>
+    </div>
+    <script>
+      const numberButtons = document.querySelectorAll(".number");
+      var currNum = "";
+      var operators = "X-+/";
+      var operator, num1, num2;
+      var result = "";
+      var firstOperation = false;
+      for (const button of Array.from(numberButtons)) {
+        button.addEventListener("click", function () {
+          const value = this.getAttribute("data-value");
+          if (value == "=") {
+            num2 = currNum;
+            currNum = "";
+            console.log(num1, num2);
+            if (operator == "+") {
+              result = parseFloat(add(num1, num2));
+              document.getElementById("result").innerHTML = result;
+              num1 = "";
+              num2 = "";
+            } else if (operator == "-") {
+              result = parseFloat(subtract(num1, num2));
+              document.getElementById("result").innerHTML = result;
+              num1 = "";
+              num2 = "";
+            } else if (operator == "X") {
+              result = parseFloat(multiply(num1, num2));
+              document.getElementById("result").innerHTML = result;
+              num1 = "";
+              num2 = "";
+            } else {
+              result = parseFloat(divide(num1, num2));
+              document.getElementById("result").innerHTML = result;
+              num1 = "";
+              num2 = "";
+            }
+            num1 = result;
+            firstOperation = true;
+          } else if (value == "CLEAR") {
+            operator, num1, num2, result, (currNum = "");
+            firstOperation = false;
+            document.getElementById("result").innerHTML = 0;
+          } else if (operators.indexOf(value) < 0) {
+            currNum += value;
+            document.getElementById("result").innerHTML = currNum;
+          } else {
+            if (firstOperation) {
+              currNum = "";
+              operator = value;
+              document.getElementById("result").innerHTML = operator;
+              console.log("num1 =", num1, "operator =", operator);
+            } else {
+              num1 = currNum;
+              currNum = "";
+              operator = value;
+              document.getElementById("result").innerHTML = operator;
+            }
+          }
+        });
+      }
+
+      function add(number1, number2) {
+        let sum = parseFloat(number1) + parseFloat(number2);
+        if (isNaN(sum)) {
+          return "Error";
+        }
+        return sum;
+      }
+      function subtract(number1, number2) {
+        let diff = parseFloat(number1) - parseFloat(number2);
+        if (isNaN(diff)) {
+          return "Error";
+        }
+        return diff;
+      }
+      function multiply(number1, number2) {
+        let product = parseFloat(number1) * parseFloat(number2);
+        if (isNan(proudct)) {
+          return "Erorr";
+        }
+        return product;
+      }
+      function divide(number1, number2) {
+        let quotient = parseFloat(number1) / parseFloat(number2);
+        if (isNaN(quotient)) {
+          return "Error";
+        }
+        return quotient;
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,41 @@
+.number{
+    border-radius: 5%;
+    padding: 10px;
+    height: 60px;
+    width: 80px;
+    line-height: 30px;
+    background-color: lightgray;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#numbers{
+    background-color: gray;
+    text-align: center;
+    width: fit-content;
+    border-radius: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    position: relative;
+
+
+}
+#signChange{
+    font-size: 40px;
+}
+#result{
+    height: 120px;
+    width: 100%;
+    font-size: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightblue;
+    margin-right: 0;
+    text-align: right;
+    border-radius: 5%;
+}
+#equals{
+    width: 160px;
+}
+body{
+    background-image: url("../backgroundImg.jpg");
+}
