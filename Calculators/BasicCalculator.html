@@ -41,9 +41,11 @@
       var operator, num1, num2;
       var result = "";
       var firstOperation = false;
+      var lastClicked = "";
       for (const button of Array.from(numberButtons)) {
         button.addEventListener("click", function () {
           const value = this.getAttribute("data-value");
+          const MAX_DISPLAY_LENGTH = 9;
           if (value == "=") {
             num2 = currNum;
             currNum = "";
@@ -75,9 +77,24 @@
             operator, num1, num2, result, (currNum = "");
             firstOperation = false;
             document.getElementById("result-number").innerHTML = 0;
-          } else if (operators.indexOf(value) < 0) {
-            currNum += value;
+          } else if (value == "PLUS_MINUS") {
+            currNum = parseFloat(currNum) * -1;
             document.getElementById("result-number").innerHTML = currNum;
+          } else if (value == "%") {
+            currNum = parseFloat(currNum) / 100;
+            document.getElementById("result-number").innerHTML = currNum;
+          } else if (operators.indexOf(value) < 0) {
+            if (lastClicked == "=") {
+              currNum = value;
+              document.getElementById("result-number").innerHTML = currNum;
+            } else {
+              currNum += value;
+              document.getElementById("result-number").innerHTML = currNum;
+              if (currNum.length > MAX_DISPLAY_LENGTH) {
+                currNum = currNum.slice(0, MAX_DISPLAY_LENGTH);
+                document.getElementById("result-number").innerHTML = currNum;
+              }
+            }
           } else {
             if (firstOperation) {
               currNum = "";
